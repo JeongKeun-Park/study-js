@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>스크립트 태그</title>
+    </head>
+    <body>
+        <h2>마우스를 올려보세요</h2>
+        <hr />
+        <!-- this는 현재 위치한 요소를 뜻한다. -->
+        <img
+            src="images/icon3.png"
+            width="250px"
+            onmouseenter="enter(this)"
+            onmouseleave="select(this)"
+        />
+    </body>
+    <script>
+        // enter(img)에서 img는 지정하고 싶은 요소를 뜻한다.
+        function enter(img) {
+            img.src = "images/icon4.png";
+        }
+        function select(img) {
+            img.src = "images/icon3.png";
+        }
+    </script>
+</html>

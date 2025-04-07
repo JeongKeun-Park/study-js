@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>앨범 실습</title>
+        <style>
+            div {
+                width: 100%;
+            }
+
+            ul {
+                width: 50%;
+            }
+
+            ul.back {
+                background-color: aqua;
+            }
+
+            li {
+                color: red;
+            }
+
+            li.blue {
+                color: blue;
+            }
+
+            li.purple {
+                color: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- album에 userId, id, title 출력 -->
+        <!-- userId는 빨간색, id는 파란색, title은 보라색으로 변경 -->
+        <!-- 버튼을 눌렀을때 20개만 출력 -->
+        <!-- li태그로 설정 -->
+        <button id="get-album">앨범 가져오기</button>
+        <div id="albums"></div>
+    </body>
+    <script src="service.js"></script>
+    <script src="layout.js"></script>
+    <script src="event.js"></script>
+</html>

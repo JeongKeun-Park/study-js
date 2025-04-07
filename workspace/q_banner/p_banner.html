@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>슬라이드 연습</title>
+        <style>
+            section {
+                display: flex;
+                flex-direction: column;
+                width: 900px;
+                margin-top: 30px;
+                overflow: hidden;
+                position: relative;
+                margin: 0 auto;
+            }
+
+            .banner {
+                display: flex;
+                width: 2700px;
+                height: 300px;
+                gap: 20px;
+                transform: translate(0px);
+            }
+
+            .banner div {
+                width: 900px;
+                height: 300px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .arrow {
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 0.5rem;
+                position: absolute;
+                z-index: 100;
+                width: 60px;
+                height: 60px;
+                top: 50%;
+                text-align: center;
+                line-height: 50px;
+                transform: translateY(-50%);
+                color: red;
+                border: 1px solid gray;
+                border-radius: 50%;
+                opacity: 0.5;
+            }
+
+            .left {
+                left: 3%;
+            }
+
+            .right {
+                right: 3%;
+            }
+
+            div.arrow:disabled {
+                cursor: not-allowed;
+                color: rgba(55, 56, 60, 0.16);
+            }
+        </style>
+    </head>
+    <body>
+        <h2 style="text-align: center">슬라이드 연습</h2>
+        <section class="container">
+            <button type="button" class="arrow left">&lt;</button>
+            <div class="banner">
+                <div class="img-wrap"><img src="images2/image_01.jpg" /></div>
+                <div class="img-wrap"><img src="images2/image_02.jpg" /></div>
+                <div class="img-wrap"><img src="images2/image_03.jpg" /></div>
+                <div class="img-wrap"><img src="images2/image_04.jpg" /></div>
+                <div class="img-wrap"><img src="images2/image_05.jpg" /></div>
+                <div class="img-wrap"><img src="images2/image_06.jpg" /></div>
+            </div>
+            <button type="button" class="arrow right">&gt;</button>
+        </section>
+    </body>
+    <script>
+        const banners = document.querySelector("div.banner");
+        const left = document.querySelector(".left");
+        const right = document.querySelector(".right");
+        let count = 0;
+        left.disabled = true;
+
+        left.addEventListener("click", () => {
+            if (count > 0) {
+                //왼쪽 화살표를 누를때
+                count--;
+                console.log(count);
+                banners.style.transform = `translate(-${900 * count}px)`;
+                banners.style.transition = `transform 0.5s`;
+                left.disabled = count === 0;
+                right.disabled = false;
+            }
+        });
+
+        right.addEventListener("click", () => {
+            if (count < 2) {
+                count++;
+                console.log(count);
+                banners.style.transform = `translate(${-900 * count}px)`;
+                banners.style.transition = `transform 0.5s`;
+            }
+            right.disabled = count === 2;
+            left.disabled = false;
+        });
+    </script>
+</html>
